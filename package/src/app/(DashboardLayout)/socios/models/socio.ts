@@ -9,4 +9,5 @@ export interface Socio {
   fechaInicio: string;
   fechaVencimiento: string;
   estado: string;
+  turno: "Mañana" | "Tarde" | "Noche";
 }

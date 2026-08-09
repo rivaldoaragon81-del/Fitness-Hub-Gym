@@ -9,6 +9,8 @@ import {
   guardarSocios,
   generarCodigo,
   actualizarSocio,
+  tieneCupo,
+  
 } from "../services/socioService";
 
 import DashboardCard from "@/app/(DashboardLayout)/components/shared/DashboardCard";
@@ -52,6 +54,10 @@ export default function FormularioSocio({
 
   const [plan, setPlan] = useState("");
 
+  const [turno, setTurno] = useState<
+  "Mañana" | "Tarde" | "Noche" | ""
+>("");
+
   const [fechaInicio, setFechaInicio] = useState("");
 
   const [editando, setEditando] = useState(false);
@@ -73,6 +79,8 @@ export default function FormularioSocio({
     setCorreo(socioSeleccionado.correo);
 
     setPlan(socioSeleccionado.plan);
+
+    setTurno(socioSeleccionado.turno || "");
 
     setFechaInicio(socioSeleccionado.fechaInicio);
 
@@ -110,6 +118,10 @@ export default function FormularioSocio({
 
     if (plan === "") {
       alert("Seleccione un plan.");
+      return;
+    }
+    if (turno === "") {
+      alert("Seleccione un turno.");
       return;
     }
 
@@ -151,6 +163,7 @@ export default function FormularioSocio({
         telefono,
         correo,
         plan,
+        turno,
         fechaInicio,
         fechaVencimiento,
 
@@ -158,41 +171,54 @@ export default function FormularioSocio({
 
       alert("Socio actualizado correctamente.");
 
-    } else {
+    }  else {
 
-      const socios = obtenerSocios();
+  const socios = obtenerSocios();
 
-      const nuevoSocio: Socio = {
+  if (!tieneCupo(turno)) {
 
-        codigo: generarCodigo(socios),
+    alert(
+      `No hay cupos disponibles para el turno de ${turno}. ` +
+      `El máximo es de 10 socios.`
+    );
 
-        nombres,
+    return;
+  }
 
-        apellidos,
+  const nuevoSocio: Socio = {
 
-        dni,
+    codigo: generarCodigo(socios),
 
-        telefono,
+    nombres,
 
-        correo,
+    apellidos,
 
-        plan,
+    dni,
 
-        fechaInicio,
+    telefono,
 
-        fechaVencimiento,
+    correo,
 
-        estado: "Activo",
+    plan,
 
-      };
+    turno,
 
-      socios.push(nuevoSocio);
+    fechaInicio,
 
-      guardarSocios(socios);
+    fechaVencimiento,
 
-      alert("Socio registrado correctamente.");
+    estado: "Activo",
 
-    }
+  };
+
+  socios.push(nuevoSocio);
+
+  guardarSocios(socios);
+
+  alert("Socio registrado correctamente.");
+
+}
+    
 
     cargarSocios();
 
@@ -211,6 +237,8 @@ export default function FormularioSocio({
     setCorreo("");
 
     setPlan("");
+
+    setTurno("");
 
     setFechaInicio("");
 
@@ -305,6 +333,34 @@ export default function FormularioSocio({
           </MenuItem>
 
         </TextField>
+        <TextField
+  select
+  label="Turno"
+  value={turno}
+  onChange={(e) =>
+    setTurno(
+      e.target.value as "Mañana" | "Tarde" | "Noche"
+    )
+  }
+  fullWidth
+>
+  <MenuItem value="">
+    Seleccione un turno
+  </MenuItem>
+
+  <MenuItem value="Mañana">
+    🌅 Mañana
+  </MenuItem>
+
+  <MenuItem value="Tarde">
+    ☀️ Tarde
+  </MenuItem>
+
+  <MenuItem value="Noche">
+    🌙 Noche
+  </MenuItem>
+
+</TextField>
 
         <TextField
           label="Fecha de Inicio"

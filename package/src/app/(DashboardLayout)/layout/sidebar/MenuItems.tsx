@@ -45,6 +45,13 @@ const Menuitems = [
     icon: IconClockHour4,
     href: "/asistencia",
   },
+  {
+  id: uniqueId(),
+  title: "Horarios",
+  icon: IconClockHour4,
+  href: "/horarios",
+},
+
 ];
 
 export default Menuitems;
