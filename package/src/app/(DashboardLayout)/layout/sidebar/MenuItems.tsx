@@ -3,6 +3,7 @@ import {
   IconUsers,
   IconCreditCard,
   IconClockHour4,
+   IconMusic
 } from "@tabler/icons-react";
 
 import { uniqueId } from "lodash";
@@ -51,7 +52,12 @@ const Menuitems = [
   icon: IconClockHour4,
   href: "/horarios",
 },
-
+{
+  id: uniqueId(),
+  title: "Talleres",
+  icon: IconMusic,
+  href: "/talleres",
+},
 ];
 
 export default Menuitems;
