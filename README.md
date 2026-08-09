@@ -1,92 +1,160 @@
-<div align="center">
-   <a href="https://adminmart.com/" target="_blank">
-      <img src="https://adminmart.github.io/template_api/images/brand-logo/adminmart-Logo.svg" alt="modernize-image" width="100px" height="80px">
-   </a>
-</div>
+# 🏋️ Fitness Hub Gym
 
-# [Modernize Free Next Js Admin Template](https://modernize-nextjs-free.vercel.app/)
+## Sistema de Gestión de Gimnasio
 
-<!-- Main image of Template -->
-[![Next Js](https://adminmart.com/wp-content/uploads/2023/03/modernize-free-next-js-admin-template.png)](#)
+Fitness Hub Gym es una aplicación web desarrollada para facilitar la gestión administrativa de un gimnasio.
 
-    
-# Modernize Free Next.js Admin Template
-
-A free, developer-friendly admin dashboard template built using **Next.js (v15)**, **Material UI (MUI v7)**, **React**, and **TypeScript**.  
-It provides a clean project structure, responsive design, and ready-made pages such as Dashboard, Login/Register, Typography, and Sample pages.  
-Distributed under the **MIT license**, it’s free for both personal and commercial use.
+El sistema permite al personal encargado gestionar socios, registrar pagos y controlar asistencias, además de visualizar información importante mediante un Dashboard.
 
 ---
 
-## ✨ Features
+## 🎯 Objetivo del proyecto
 
-- ⚡ Built with **Next.js 15**, **React**, **TypeScript**, and **MUI 7**
-- 📱 Fully responsive design
-- 🗂️ Organized folder structure
-- 🔑 Authentication pages (Login, Signup)
-- 📊 Dashboard, Typography, Sample layout pages
-- 🆓 Free under **MIT license**
-- 🚀 Lightweight and production-ready
+El objetivo de Fitness Hub Gym es centralizar la información relacionada con los socios del gimnasio y facilitar las principales tareas administrativas.
 
----
+La aplicación busca mejorar el control de:
 
-## 🚀 Getting Started
+- Socios
+- Membresías
+- Pagos
+- Asistencias
 
-### 1. Clone the repository
-```bash
-git clone https://github.com/adminmart/Modernize-Nextjs-Free.git
-```
-
-### 2. Navigate to the project
-```bash
-cd Modernize-Nextjs-Free/package
-```
-
-### 3. Install dependencies
-```bash
-npm install
-```
-
-### 4. Run in development mode
-```bash
-npm run dev
-```
-
-### 5. Build for production
-```bash
-npm run build
-```
-## 📂 Pages Included
-
-- Dashboard  
-- Login & Signup  
-- Typography  
-- Sample Layout  
+Todo desde una interfaz web sencilla y organizada.
 
 ---
 
+## 🚀 Funcionalidades
 
-## 📊 Summary Table
+### 🔐 Inicio de sesión
 
-| Aspect           | Details                                                 |
-|------------------|---------------------------------------------------------|
-| Framework        | Next.js (v15), React, TypeScript, Material UI (v7)      |
-| Pages Included   | Dashboard, Login/Register, Typography, Sample           |
-| Design           | Responsive, MUI-styled, clean and modern                |
-| License          | MIT – Free for personal and commercial use              |
-| Getting Started  | Clone → npm install → npm run dev → npm run build       |
-| Pro Version      | 65+ pages, NextAuth/Firebase auth, Dark mode, Figma     |
+El sistema cuenta con un acceso para el personal del gimnasio.
+
+- Usuario y contraseña.
+- Validación de credenciales.
+- Opción "Recordarme".
+- Redirección al Dashboard después del inicio de sesión.
+
+### 👥 Gestión de socios
+
+Permite administrar la información de los miembros del gimnasio.
+
+- Registrar socios.
+- Generar código de socio.
+- Registrar nombres y apellidos.
+- Registrar DNI.
+- Registrar teléfono.
+- Registrar correo electrónico.
+- Seleccionar plan de membresía.
+- Registrar fecha de inicio.
+- Registrar fecha de vencimiento.
+- Consultar estado del socio.
+- Buscar socios.
+- Editar socios.
+- Eliminar socios.
+
+### 💳 Gestión de pagos
+
+Permite registrar y consultar los pagos realizados por los socios.
+
+- Selección del socio.
+- Plan de membresía automático.
+- Monto automático según el plan.
+- Fecha de pago.
+- Método de pago.
+- Historial de pagos.
+- Búsqueda de pagos.
+- Eliminación de pagos.
+
+#### Métodos de pago
+
+- Efectivo
+- Yape
+- Plin
+- Tarjeta
+
+### 🕐 Control de asistencia
+
+Permite llevar un registro de las asistencias de los socios.
+
+- Registrar asistencia.
+- Seleccionar socio.
+- Fecha automática.
+- Hora automática.
+- Generar código de asistencia.
+- Consultar historial.
+- Buscar asistencias.
+- Eliminar registros.
+
+### 📊 Dashboard
+
+El Dashboard presenta indicadores generales del gimnasio:
+
+- Total de socios.
+- Socios activos.
+- Socios vencidos.
+- Socios con plan Premium.
+- Ingresos totales.
+- Asistencias del día.
 
 ---
 
-## 📜 License
+## 🛠️ Tecnologías utilizadas
 
-This project is licensed under the **MIT License** – you can use it for personal and commercial projects.
+- **Next.js**
+- **React**
+- **TypeScript**
+- **Material UI (MUI)**
+- **Tabler Icons**
+- **HTML**
+- **CSS**
+- **JavaScript**
 
 ---
 
-## 📧 Support
+## 💾 Almacenamiento
 
-For more info or query, visit [AdminMart](https://adminmart.com).
+Para este proyecto se utiliza el almacenamiento del navegador mediante:
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+- `localStorage`
+- `sessionStorage`
+
+Estos mecanismos permiten conservar la información registrada mientras se utiliza la aplicación.
+
+> El almacenamiento local se utiliza con fines académicos y demostrativos. Para una aplicación real se recomienda implementar un backend y una base de datos.
+
+---
+
+## 📁 Estructura principal del proyecto
+
+```text
+src/
+└── app/
+    │
+    ├── authentication/
+    │   ├── login/
+    │   ├── auth/
+    │   └── register/
+    │
+    └── (DashboardLayout)/
+        │
+        ├── asistencia/
+        │   ├── components/
+        │   ├── models/
+        │   └── services/
+        │
+        ├── pagos/
+        │   ├── components/
+        │   ├── models/
+        │   └── services/
+        │
+        ├── socios/
+        │   ├── components/
+        │   ├── models/
+        │   └── services/
+        │
+        ├── components/
+        │   └── dashboard/
+        │       └── gimnasio/
+        │
+        └── layout/
+            └── sidebar/
