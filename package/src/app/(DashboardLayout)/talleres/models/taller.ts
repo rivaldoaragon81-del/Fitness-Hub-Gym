@@ -7,4 +7,5 @@ export interface Taller {
   horaFin: string;
   capacidad: number;
   inscritos: number;
+  sociosInscritos: string[];
 }

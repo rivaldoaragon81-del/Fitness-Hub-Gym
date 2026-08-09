@@ -71,6 +71,7 @@ export default function FormularioTaller() {
       capacidad: CAPACIDAD_TALLER,
 
       inscritos: 0,
+      sociosInscritos: [],
     };
 
     talleres.push(nuevoTaller);
