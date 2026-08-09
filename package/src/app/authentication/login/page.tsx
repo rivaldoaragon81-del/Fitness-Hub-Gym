@@ -8,7 +8,7 @@ import AuthLogin from "../auth/AuthLogin";
 
 const Login2 = () => {
   return (
-    <PageContainer title="Login" description="this is Login page">
+    <PageContainer title="Fitness Hub Gym" description="this is Login page">
       <Box
         sx={{
           position: "relative",
@@ -55,7 +55,7 @@ const Login2 = () => {
                     color="textSecondary"
                     mb={1}
                   >
-                    Your Social Campaigns
+                    Sistema de Gestión de Gimnasio
                   </Typography>
                 }
                 subtitle={

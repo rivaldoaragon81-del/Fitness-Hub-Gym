@@ -1,21 +1,29 @@
 import Link from "next/link";
-import { styled } from "@mui/material";
-import Image from "next/image";
+import { styled, Typography } from "@mui/material";
 
 const LinkStyled = styled(Link)(() => ({
   height: "70px",
-  width: "180px",
-  overflow: "hidden",
-  display: "block",
+  width: "200px",
+  display: "flex",
+  alignItems: "center",
+  textDecoration: "none",
 }));
 
 const Logo = () => {
   return (
     <LinkStyled href="/">
-      <Image src="/images/logos/dark-logo.svg" alt="logo" height={70} width={174} priority />
+      <Typography
+        variant="h5"
+        fontWeight={700}
+        sx={{
+          color: "primary.main",
+          whiteSpace: "nowrap",
+        }}
+      >
+        Fitness Hub Gym
+      </Typography>
     </LinkStyled>
   );
 };
 
 export default Logo;
-  

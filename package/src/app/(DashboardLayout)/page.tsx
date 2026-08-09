@@ -1,61 +1,95 @@
-'use client'
-import { Grid, Box } from '@mui/material';
-import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
-// components
-import SalesOverview from '@/app/(DashboardLayout)/components/dashboard/SalesOverview';
-import YearlyBreakup from '@/app/(DashboardLayout)/components/dashboard/YearlyBreakup';
-import RecentTransactions from '@/app/(DashboardLayout)/components/dashboard/RecentTransactions';
-import ProductPerformance from '@/app/(DashboardLayout)/components/dashboard/ProductPerformance';
-import Blog from '@/app/(DashboardLayout)/components/dashboard/Blog';
-import MonthlyEarnings from '@/app/(DashboardLayout)/components/dashboard/MonthlyEarnings';
+"use client";
+
+import { Grid, Box } from "@mui/material";
+
+import PageContainer from "@/app/(DashboardLayout)/components/container/PageContainer";
+
+import TotalSocios from "@/app/(DashboardLayout)/components/dashboard/gimnasio/TotalSocios";
+import SociosActivos from "@/app/(DashboardLayout)/components/dashboard/gimnasio/SociosActivos";
+import SociosVencidos from "@/app/(DashboardLayout)/components/dashboard/gimnasio/SociosVencidos";
+import PlanPremium from "@/app/(DashboardLayout)/components/dashboard/gimnasio/PlanPremium";
+import IngresosTotales from "@/app/(DashboardLayout)/components/dashboard/gimnasio/IngresosTotales";
+import AsistenciasHoy from "@/app/(DashboardLayout)/components/dashboard/gimnasio/AsistenciasHoy";
 
 const Dashboard = () => {
   return (
-    <PageContainer title="Dashboard" description="this is Dashboard">
+    <PageContainer
+      title="Dashboard"
+      description="Sistema de Gestión de Gimnasio"
+    >
       <Box>
         <Grid container spacing={3}>
+
+          {/* Total de socios */}
           <Grid
             size={{
               xs: 12,
-              lg: 8
-            }}>
-            <SalesOverview />
+              md: 6,
+              lg: 4,
+            }}
+          >
+            <TotalSocios />
           </Grid>
+
+          {/* Socios activos */}
           <Grid
             size={{
               xs: 12,
-              lg: 4
-            }}>
-            <Grid container spacing={3}>
-              <Grid size={12}>
-                <YearlyBreakup />
-              </Grid>
-              <Grid size={12}>
-                <MonthlyEarnings />
-              </Grid>
-            </Grid>
+              md: 6,
+              lg: 4,
+            }}
+          >
+            <SociosActivos />
           </Grid>
+
+          {/* Socios vencidos */}
           <Grid
             size={{
               xs: 12,
-              lg: 4
-            }}>
-            <RecentTransactions />
+              md: 6,
+              lg: 4,
+            }}
+          >
+            <SociosVencidos />
           </Grid>
+
+          {/* Plan Premium */}
           <Grid
             size={{
               xs: 12,
-              lg: 8
-            }}>
-            <ProductPerformance />
+              md: 6,
+              lg: 4,
+            }}
+          >
+            <PlanPremium />
           </Grid>
-          <Grid size={12}>
-            <Blog />
+
+          {/* Ingresos totales */}
+          <Grid
+            size={{
+              xs: 12,
+              md: 6,
+              lg: 4,
+            }}
+          >
+            <IngresosTotales />
           </Grid>
+
+          {/* Asistencias de hoy */}
+          <Grid
+            size={{
+              xs: 12,
+              md: 6,
+              lg: 4,
+            }}
+          >
+            <AsistenciasHoy />
+          </Grid>
+
         </Grid>
       </Box>
     </PageContainer>
   );
-}
+};
 
 export default Dashboard;
